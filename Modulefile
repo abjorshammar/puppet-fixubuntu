@@ -1,0 +1,8 @@
+name    'abjorshammar-fixubuntu'
+version '0.1.0'
+source 'git@github.com:abjorshammar/puppet-fixubuntu.git'
+author 'abjorshammar'
+license 'Apache License, Version 2.0'
+summary 'Remove Unity shopping lenses'
+description 'Runs fixubuntu script to disable Unity shopping lenses'
+project_page 'https://github.com/abjorshammar/puppet-fixubuntu'
