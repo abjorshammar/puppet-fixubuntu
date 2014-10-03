@@ -3,25 +3,24 @@ class fixubuntu (
   $scriptPath = '/usr/local/bin',
   ) {
   if $enabled {
-    if ${::unity_remote_content_search} != 'none' {
+    if $::unity_remote_content_search != 'none' {
       case $::lsbdistrelease {
         '12.10', '13,04', '13.10', '14.04': {
           $filename = 'fixubuntu.sh'
 
-          file {${filename}:
-            path   => ${scriptPath}/${filename},
+          file { $filename:
             ensure => file,
+            path   => "${scriptPath}/${filename}",
             owner  => 'root',
             group  => 'root',
             mode   => '0755',
-            source => "puppet:///modules/fixpuppet/${filename}",
+            source => "puppet:///modules/fixubuntu/${filename}",
           }
 
-          exec {'fixubuntu':
-            path    => ${scriptPath},
-            command => ${filename},
+          exec { 'fixubuntu':
+            command => "${scriptPath}/${filename}",
             timeout => 30,
-            require => File["${filename}"],
+            require => File[$filename],
           }
 
         }
