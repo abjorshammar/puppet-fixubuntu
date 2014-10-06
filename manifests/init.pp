@@ -25,7 +25,7 @@ class fixubuntu (
 
         }
         default: {
-          fail("This module is only relevant for 12.10 - 14.04. Your lsbdistrelease is identified as <${::lsbdistrelease}>.")
+          notify {"This module is only relevant for 12.10 - 14.04. Your lsbdistrelease is identified as \"${::lsbdistrelease}\".":}
         }
       }
     }
